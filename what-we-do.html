@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/responsive.css">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: "Zilla Slab", serif;
+        }
+
+        p,
+        li {
+            font-family: "Jost", serif;
+        }
+
+        video {
+            width: 100%;
+
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            /* justify-content: space-between; */
+            gap: 1%;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        /* Hamburger Button */
+        .menu-toggle {
+            display: none;
+        }
+
+        .hamburger {
+            background-color: orangered;
+            padding: 1%;
+            width: 59px;
+            height: 63px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            align-items: center;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 7px;
+            width: 30%;
+            background: white;
+            border-radius: 50px;
+        }
+
+
+
+        /* Fullscreen Menu Overlay */
+        .menu-overlay {
+            padding: 66px 0px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 34%;
+            height: 100%;
+            background: #272727;
+            /* display: grid;
+            grid-template-rows: auto 1fr auto; */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+
+        .anime {
+            margin: 19px;
+        }
+
+        .menu-toggle:checked~.menu-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Menu Links */
+        .menu-overlay ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .menu-overlay ul li {
+            font-size: 24px;
+        }
+
+        .menu-overlay ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .menu-overlay ul li a:hover {
+            color: #ff6f61;
+        }
+
+        /* Footer Icons */
+        /* .footer {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer a {
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: #ff6f61;
+        } */
+
+        /* Close Button */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .close-btn:hover {
+            color: #ff6f61;
+        }
+
+        .n-h1,
+        .n-h2,
+        .n-h3,
+        .n-h4 {
+            margin: 0;
+            width: 100%;
+            height: 5cqw;
+        }
+
+        .n-h1:hover {
+            color: black;
+            background-color: #F3783B;
+
+        }
+
+        .n-h2:hover {
+
+            background-color: #dd543b;
+        }
+
+        .n-h3:hover {
+
+            background-color: #65B2E8;
+        }
+
+        .n-h4:hover {
+
+            background-color: #855db3;
+            color: black;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+
+
+
+        .n-i-img img {
+            background: #343434;
+            height: 34px;
+            border-radius: 59px;
+        }
+
+        .n-i-img img:hover {
+            background-color: #f3783b;
+        }
+
+        .n-i-img {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .link {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .n-p {
+            color: white;
+            font-size: 20px;
+        }
+
+        .home-page-bg-img {
+            height: 613px;
+            width: 100%;
+        }
+
+        /* bannar video */
+        .carrrer-content {
+            font-size: 42px;
+            position: absolute;
+            top: 38%;
+            left: 8%;
+            color: white;
+            /* bottom: 20% */
+        }
+
+        /* background image */
+
+        .container2 {
+            position: relative;
+            background-color: #d13b1f;
+            width: 100%;
+            height: 550px;
+
+        }
+
+        .content-ariel-img {
+            object-fit: cover;
+            width: 100%;
+            height: 600px;
+            opacity: 0.2;
+        }
+
+        .content-info-ariel {
+            bottom: 0%;
+            position: absolute;
+            top: 30%;
+            left: 0;
+            left: 45px;
+            gap: 21px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-info-ariel h1 {
+            font-size: 35px;
+            color: white;
+        }
+
+        .content-info-ariel p {
+            line-height: 1.3em;
+            font-size: 16px;
+            color: white;
+        }
+
+
+
+        /* General styles */
+        .content {
+            height: 400px;
+            position: relative;
+            overflow: hidden;
+            /* Ensure elements stay within bounds */
+        }
+
+        .content img {
+            object-fit: cover;
+            width: 100%;
+            height: 400px;
+        }
+
+
+
+
+
+
+
+        /* Initial visible content */
+        .content .initial {
+            position: absolute;
+            /* bottom: 20%; */
+            top: 69%;
+            left: 20%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            z-index: 1;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Smooth fade out */
+        }
+
+        .content .initial-1 {
+            position: absolute;
+            /* bottom: 20%; */
+            top: 69%;
+            left: 31%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            z-index: 1;
+            transition: opacity 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Smooth fade out */
+        }
+
+        .initial h1 {
+            font-size: 29px;
+            padding: 2px;
+            background: #000000c4;
+            margin: 2px 2px;
+        }
+
+        .overlay-h1 {
+            color: black;
+            font-size: 30px;
+        }
+
+        .overlay-h6 {
+            color: black;
+            font-size: 13px;
+        }
+
+        .overlay-p {
+            color: black;
+            font-size: 16px;
+        }
+
+        .initial p {
+            font-size: 15px;
+            padding: 2px;
+            background: #000000c4;
+            margin: 5px 2px;
+        }
+        .footer-orange {
+    background-color: #f3783b;
+    height: 15px;
+}
+
+        .initial-1 h1 {
+            font-size: 29px;
+            padding: 2px;
+            background: #000000c4;
+            margin: 2px 2px;
+        }
+
+        .initial-1 p {
+            font-size: 15px;
+            padding: 2px;
+            background: #000000c4;
+            margin: 2px 2px;
+        }
+
+        /* Overlay content (hidden initially) */
+        .content .overlay {
+            position: absolute;
+            bottom: -100%;
+            /* Start off-screen at the bottom */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f3783bf5;
+            /* Semi-transparent overlay */
+            color: white;
+            /* display: grid;
+            place-items: center;  */
+            text-align: center;
+            transition: bottom 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            padding: 33px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 22px;
+            /* Hidden by default */
+        }
+
+        .content .overlay-2 {
+            position: absolute;
+            bottom: -100%;
+            /* Start off-screen at the bottom */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #dd543bf0;
+            /* Semi-transparent overlay */
+            color: white;
+            /* display: grid;
+            place-items: center;  */
+            text-align: center;
+            transition: bottom 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            padding: 33px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 22px;
+            /* Hidden by default */
+        }
+
+        .content .overlay-3 {
+            position: absolute;
+            bottom: -100%;
+            /* Start off-screen at the bottom */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #845db2f5;
+            /* Semi-transparent overlay */
+            color: white;
+            /* display: grid;
+            place-items: center;  */
+            text-align: center;
+            transition: bottom 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            padding: 33px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 22px;
+            /* Hidden by default */
+        }
+
+        .content .overlay-B {
+            position: absolute;
+            bottom: -100%;
+            /* Start off-screen at the bottom */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #65b2e8;
+            /* Semi-transparent overlay */
+            color: white;
+            /* display: grid;
+            place-items: center;  */
+            text-align: center;
+            transition: bottom 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            padding: 33px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 22px;
+            /* Hidden by default */
+        }
+
+        .content .overlay-G {
+            position: absolute;
+            bottom: -100%;
+            /* Start off-screen at the bottom */
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #a5b939;
+            /* Semi-transparent overlay */
+            color: white;
+            /* display: grid;
+            place-items: center;  */
+            text-align: center;
+            transition: bottom 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            padding: 33px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 22px;
+            /* Hidden by default */
+        }
+
+
+        /* Hover effect */
+        .content:hover .initial {
+            opacity: 0;
+            /* Fade out initial content */
+        }
+
+        .content:hover .initial-1 {
+            opacity: 0;
+            /* Fade out initial content */
+        }
+
+        .content:hover .overlay {
+            bottom: 0;
+            /* Slide in the overlay */
+            opacity: 1;
+            /* Make overlay visible */
+        }
+
+        .content:hover .overlay-2 {
+            bottom: 0;
+            /* Slide in the overlay */
+            opacity: 1;
+            /* Make overlay visible */
+        }
+
+        .content:hover .overlay-3 {
+            bottom: 0;
+            /* Slide in the overlay */
+            opacity: 1;
+            /* Make overlay visible */
+        }
+
+        .content:hover .overlay-G {
+            bottom: 0;
+            /* Slide in the overlay */
+            opacity: 1;
+            /* Make overlay visible */
+        }
+
+        .content:hover .overlay-B {
+            bottom: 0;
+            /* Slide in the overlay */
+            opacity: 1;
+            /* Make overlay visible */
+        }
+
+        /* Grid container */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+        }
+
+        /* container 4 big-hero */
+        /* background image */
+
+
+        .container4 {
+            position: relative;
+
+
+        }
+
+        .content-bighero-img {
+            object-fit: cover;
+            width: 100%;
+            height: 600px;
+            opacity: 0.2;
+        }
+
+        .content-info-bighero {
+            bottom: 0%;
+            position: absolute;
+            top: 30%;
+            left: 0;
+            left: 45px;
+            gap: 21px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-info-bighero h1 {
+            font-size: 46px;
+        }
+
+        .content-info-bighero p {
+            line-height: 1.3em;
+            font-size: 16px;
+        }
+
+        .container-7-grid {
+            display: grid;
+            grid-template-columns: 500px 1fr;
+        }
+
+        /* footer */
+        .footer1 img {
+            /* margin: 15px 42px; */
+            height: 60px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            /* gap: 16%; */
+            margin: 6%;
+            justify-content: space-between;
+        }
+
+        .foot-hover {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        div ul {
+            display: flex;
+            gap: 2%;
+            white-space: nowrap;
+        }
+
+        /* and (max-width: 1340px) */
+
+        .red {
+            height: 6px;
+            width: 91px;
+            background: #f35135;
+        }
+
+        .orange {
+            height: 6px;
+            width: 91px;
+            background: #ed7032;
+        }
+
+        .purple {
+            height: 6px;
+            width: 91px;
+            background: #865eb0;
+        }
+
+        .green {
+            height: 6px;
+            width: 91px;
+            background: #a1b533;
+        }
+
+        .blue {
+            height: 6px;
+            width: 91px;
+            background: #5cade5;
+        }
+
+
+
+
+        .footer-container2 {
+            display: flex;
+            margin: 10px 20px;
+            gap: 7%;
+        }
+
+        li {
+            font-size: 13px;
+        }
+
+        .i-img img {
+            background: grey;
+            height: 34px;
+            border-radius: 59px;
+        }
+
+        .i-img img:hover {
+            background-color: #f3783b;
+        }
+
+        .i-img {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+
+        .i-img p {
+            white-space: nowrap;
+            font-size: 16px;
+        }
+
+        .fc2-d2 {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .fc2-d2 h6 {
+            font-size: 16px;
+        }
+
+        .img-foot {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .footer-container2 p {
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <div class="logo">
+            <img src="image/disneylogo3 (1).svg" alt="Logo">
+        </div>
+    </header>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <div class="menu-overlay">
+
+        <div class="link">
+            <h1 class="n-h1"><a href="/practice.html">Home</a></h1>
+            <h1 class="n-h2"><a href="/career.html">Careers</a></h1>
+            <h1 class="n-h3"><a href="/what-we-do.html">What We Do</a></h1>
+           
+        </div>
+        <div class="anime">
+            <p class="n-p">DISNEY ANIMATION</p>
+            <div class="n-i-img">
+
+                <img src="image/facebook-icon.svg" alt="">
+                <img src="image/twitter-icon.svg" alt="">
+                <img src="image/youtube-icon.svg" alt="">
+                <img src="image/instagram-icon.svg" alt="">
+                <img src="image/tiktok-icon.svg" alt="">
+            </div>
+            <p class="n-p">DISNEY ANIMATION CAREERS</p>
+            <div class="n-i-img">
+
+                <img src="image/facebook-icon.svg" alt="">
+                <img src="image/instagram-icon.svg" alt="">
+                <img src="image/linkedin-icon.svg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="hero" id>
+        <video src="image/what-video-1.mp4" autoplay></video>
+        <h1 class="carrrer-content">What <br> We Do </h1>
+    </div>
+    <section>
+        <div class="container2">
+            <div class="content-ariel">
+                <img class="content-ariel-img" src="image/what-bg-1.webp" alt="">
+                <div class="content-info-ariel">
+                    <h1>Two Vibrant Locations,<br>One collaborative Studio </h1>
+                    <p>Join Walt Disney Animation Studios through opportunities in Burbank and Vancouver! Follow Disney
+                        Animation Careers to stay connected on the latest open positions, upcoming events, career tips,
+                        and more.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <!-- Grid Item 1 -->
+            <div class="content">
+                <img src="image/what-h1-img.webp" alt="Image 1">
+                <div class="initial">
+                    <h1>Feature</h1>
+                    <h1> Films </h1>
+                    <p>WHAT WE DO</p>
+                    <span class="red"></span>
+                    <p class="initial-p">Each individual at our Studio contributes to the creation of our films. Be a
+                        part of our
+                        rich </p>
+                    <!-- Initial content -->
+                </div>
+                <div class="overlay-2">
+                    <h1 class="overlay-h1">Feature</h1>
+                    <h1 class="overlay-h1"> Films </h1>
+                    <h6 class="overlay-h6">WHAT WE DO</h6>
+                    <p class="overlay-p">Each individual at our Studio contributes to the creation of our films. Be a
+                        part of our
+                        rich </p><!-- Hover content -->
+
+                </div>
+            </div>
+
+            <!-- Grid Item 2 -->
+            <div class="content">
+                <img src="image/hd-img1.webp" alt="Image 2">
+                <div class="initial-1">
+                    <h1>Short</h1>
+                    <h1>Films </h1>
+                    <p>WHAT WE DO</p>
+                    <span class="red"></span>
+                    <p class="initial-p">Our films combine masterful artistry and storytelling with groundbreaking
+                        technology.</p>
+                    <!-- Initial content -->
+                </div>
+                <div class="overlay-2">
+                    <h1 class="overlay-h1">Short</h1>
+                    <h1 class="overlay-h1"> Films </h1>
+                    <h6 class="overlay-h6">WHAT WE DO</h6>
+                    <p class="overlay-p">Our films combine masterful artistry and storytelling with groundbreaking
+                        technology.</p>
+                    <!-- Hover content -->
+
+                </div>
+            </div>
+
+            <!-- Grid Item 3 -->
+            <div class="content">
+                <img src="image/what-h3-img.webp" alt="Image 3">
+                <div class="initial">
+                    <h1>Disney+</h1>
+                    <h1>Originals</h1>
+                    <p>WHAT WE DO</p>
+                    <span class="red"></span>
+                    <p class="initial-p">Our technologists and artists work together to advance the art and science of
+                        animation and
+                        shape the future of animated storytelling.</p>
+                    <!-- Initial content -->
+                </div>
+                <div class="overlay-2">
+                    <h1 class="overlay-h1">Disney+</h1>
+                    <h1 class="overlay-h1">Originals</h1>
+                    <h6 class="overlay-h6">WHAT WE DO</h6>
+                    <p class="overlay-p">Our technologists and artists work together to advance the art and science of
+                        animation and
+                        shape the future of animated storytelling.</p>
+                    <!-- Hover content -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container4">
+            <!-- <div class="content-big-"> -->
+            <img class="content-bighero-img" src="image/what-bg-2.webp" alt="">
+            <div class="content-info-bighero">
+                <h1>Universal stories, set in imaginative worlds, filled with compelling characters. </h1>
+                <p>Our films have left indelible impressions on generations of fans around the world.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- <video src="image/video-cind.mp4"></video> -->
+    <section>
+        <div class="container-7-grid">
+            <!-- Grid Item 1 -->
+            <div class="content">
+                <img src="/image/what-h5-img.jpg" alt="Image 1">
+                <div class="initial">
+                    <h1>Making an</h1>
+                    <h1>Animation Film</h1>
+                    <p>FILMMAKING PROCESS</p>
+                    <span class="orange"></span>
+                    <p class="initial-p">Each individual at our Studio contributes to the creation of our films. Be a
+                        part of our
+                        rich </p>
+                    <!-- Initial content -->
+                </div>
+                <div class="overlay">
+                    <h1 class="overlay-h1">Making an</h1>
+                    <h1 class="overlay-h1">Animation Film</h1>
+                    <h6 class="overlay-h6">FILMMAKING PROCESS</h6>
+                    <p class="overlay-p">Each individual at our Studio contributes to the creation of our films. Be a
+                        part of our
+                        rich </p><!-- Hover content -->
+
+                </div>
+            </div>
+
+            <!-- Grid Item 2 -->
+            <div class="content">
+                <img src="image/H-img-3.webp" alt="Image 2">
+                <div class="initial">
+                    <h1>Accelerating</h1>
+                    <h1>Creativity</h1>
+                    <p>TECHNOLOGY</p>
+                    <span class="purple"></span>
+                    <p class="initial-p">Our technologists and artists work together to advance the art and science of
+                        animation and
+                        shape the future of animated storytelling.</p>
+                    <!-- Initial content -->
+                </div>
+                <div class="overlay-3">
+                    <h1 class="overlay-h1">Accelerating</h1>
+                    <h1 class="overlay-h1">Creativity</h1>
+                    <h6 class="overlay-h6">TECHNOLOGY</h6>
+                    <p class="overlay-p">Our technologists and artists work together to advance the art and science of
+                        animation and
+                        shape the future of animated storytelling.</p>
+                    <!-- Hover content -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container4">
+            <!-- <div class="content-big-"> -->
+            <img class="content-bighero-img" src="image/sketch-queen.jpg" alt="">
+            <div class="content-info-bighero">
+                <h1>Storytelling through Art & Science </h1>
+                <p>At Walt Disney Animation Studios, artists and technologists work together to advance the art and
+                    science of animation. Inspired by our legacy, we look ahead to discover new styles, tools, and
+                    techniques that will shape the future of animated storytelling.</p>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <!-- Grid Item 1 -->
+            <div class="content">
+                <img src="image/what-h6-video.webp" alt="Image 1">
+                <div class="initial">
+                    <h1>Be Part of</h1>
+                    <h1>our Story</h1>
+                    <p>CAREERS</p>
+                    <span class="orange"></span>
+                    <p class="initial-p">Each individual at our Studio contributes to the creation of our films. Be a
+                        part of our
+                        rich </p>
+                    <!-- Initial content -->
+                </div>
+                <div class="overlay">
+                    <h1 class="overlay-h1">Be Part of</h1>
+                    <h1 class="overlay-h1">our Story</h1>
+                    <h6 class="overlay-h6">CAREERS</h6>
+                    <p class="overlay-p">Each individual at our Studio contributes to the creation of our films. Be a
+                        part of our
+                        rich </p><!-- Hover content -->
+
+                </div>
+            </div>
+
+            <!-- Grid Item 2 -->
+            <div class="content">
+                <img src="image/hd-img3.webp" alt="Image 3">
+                <div class="initial-1">
+                    <h1>Growing</h1>
+                    <h1>New Talent</h1>
+                    <p>INTERNS & APPRENTICES</p>
+                    <span class="green"></span>
+                    <p class="initial-p">Our technologists and artists work together to advance the art and science
+                        of animation and
+                        shape the future of animated storytelling.</p>
+                    <!-- Initial content -->
+                </div>
+                <div class="overlay-G ">
+                    <h1 class="overlay-h1">Growing</h1>
+                    <h1 class="overlay-h1">New Talent</h1>
+                    <h6 class="overlay-h6">INTERNS & APPRENTICES</h6>
+                    <p class="overlay-p">Our technologists and artists work together to advance the art and science
+                        of animation and
+                        shape the future of animated storytelling.</p>
+                    <!-- Hover content -->
+
+                </div>
+            </div>
+
+            <!-- Grid Item 3 -->
+            <div class="content">
+                <img src="image/H-img-1.webp" alt="Image 3">
+                <div class="initial">
+                    <h1>Meet Our</h1>
+                    <h1>People</h1>
+                    <p>OUR PEOPLE</p>
+                    <span class="blue"></span>
+                    <p class="initial-p">Meet the people who call our studio home.</p>
+                    <!-- Initial content -->
+                </div>
+                <div class="overlay-B">
+                    <h1 class="overlay-h1">Meet Our</h1>
+                    <h1 class="overlay-h1">People</h1>
+                    <h6 class="overlay-h6">OUR PEOPLE</h6>
+                    <p class="overlay-p">Our technologists and artists work together to advance the art and science of
+                        animation and
+                        shape the future of animated storytelling.</p>
+                    <!-- Hover content -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-container">
+            <div class="footer1">
+                <img src="image/footer-logo.svg" alt="">
+            </div>
+            <div class="foot-hover">
+                <p>DISNEY ANIMATION</p>
+                <div class="img-foot">
+
+                    <div class="i-img">
+
+                        <img src="image/facebook-icon.svg" alt="">
+                        <img src="image/twitter-icon.svg" alt="">
+                        <img src="image/youtube-icon.svg" alt="">
+                        <img src="image/instagram-icon.svg" alt="">
+                        <img src="image/tiktok-icon.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="i-img">
+                <ul type="none" >
+                    <li>
+                        <p>DISNEY ANIMATION</p>
+                    </li>
+                    <li> <img src="image/facebook-icon.svg" alt=""></li>
+                    <li> <img src="image/twitter-icon.svg" alt=""></li>
+                    <li> <img src="image/youtube-icon.svg" alt=""></li>
+                    <li> <img src="image/instagram-icon.svg" alt=""></li>
+                    <li> <img src="image/tiktok-icon.svg" alt=""></li>
+                </ul>
+            </div> -->
+            <div class="foot-hover">
+                <p>DISNEY ANIMATION</p>
+                <div class="img-foot">
+
+                    <div class="i-img">
+
+                        <img src="image/facebook-icon.svg" alt="">
+                        <img src="image/instagram-icon.svg" alt="">
+                        <img src="image/linkedin-icon.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- <div>
+             <p>DISNEY ANIMATION</p> 
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+          <img src="image/youtube-icon.svg" alt="">
+            </div> -->
+        </div>
+        <div class="footer-container2">
+            <div>
+                <p>© 2024 Disney Enterprises, Inc. All Rights Reserved.</p>
+            </div>
+            <div class="fc2-d2">
+                <h6>Part of
+                    The Walt Disney Company</h6>
+                <ul type="none">
+                    <li>Disney.com </li>
+                    <li> terms of use </li>
+                    <li>Privacy Policy</li>
+                    <li> Your US State Privacy Rights</li>
+                    <li>Children's Online Privacy Policy</li>
+                    <li>Do Not Sell or Share My Personal Information</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="footer-orange">
+
+    </div>
+</body>
+
+</html>
